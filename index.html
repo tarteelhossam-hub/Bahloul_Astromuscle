@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AstroMuscle</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="space-bg"></div>
+    <div class="nebula-glow"></div>
+
+    <section id="homeScreen" class="screen active">
+        <div class="home-header">
+            <h1 class="home-title">ASTRO<span>muscle</span></h1>
+            <p class="home-subtitle">ISS BIO-TELEMETRY COMMAND CENTER</p>
+        </div>
+        <div class="astronaut-cards">
+            <div class="astronaut-card" onclick="enterDashboard(1)">
+                <div class="card-glow"></div>
+                <div class="astro-avatar">👨‍🚀</div>
+                <h3>CMDR. ALI</h3>
+                <p class="mission-tag">MARS ORBIT</p>
+                <div class="status-indicator stable"><span class="pulse-dot"></span> STABLE</div>
+            </div>
+            <div class="astronaut-card" onclick="enterDashboard(2)">
+                <div class="card-glow"></div>
+                <div class="astro-avatar">👩‍🚀</div>
+                <h3>DR. SARA</h3>
+                <p class="mission-tag">LUNAR BASE</p>
+                <div class="status-indicator optimal"><span class="pulse-dot"></span> OPTIMAL</div>
+            </div>
+            <div class="astronaut-card" onclick="enterDashboard(3)">
+                <div class="card-glow"></div>
+                <div class="astro-avatar">👨‍🚀</div>
+                <h3>ENG. OMAR</h3>
+                <p class="mission-tag">DEEP SPACE</p>
+                <div class="status-indicator critical"><span class="pulse-dot"></span> CRITICAL</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="dashboardScreen" class="screen">
+
+        <nav class="sidebar">
+            <div class="logo" onclick="goHome()"><h1>ASTRO<span>HEALTH</span></h1></div>
+            <ul class="nav-links">
+                <li id="nav1" class="active" onclick="showPage('rider1', 'nav1')">👨‍🚀 CMDR. ALI</li>
+                <li id="nav2" onclick="showPage('rider2', 'nav2')">👩‍🚀 DR. SARA</li>
+                <li id="nav3" onclick="showPage('rider3', 'nav3')">👨‍🚀 ENG. OMAR</li>
+                <li id="navEMS" onclick="showPage('emsPage', 'navEMS')">⚡ EMS CONTROL</li>
+                <li class="back-home" onclick="goHome()">⬅ RETURN TO BASE</li>
+            </ul>
+            <div class="footer-sidebar"><p>ISS • TRAUMATOLOGY LAB</p></div>
+        </nav>
+
+        <main class="main-content">
+
+            <section id="rider1" class="rider-page active">
+                <header class="page-header">
+                    <div><h2>CMDR. ALI</h2><p class="subtitle">MISSION: MARS ORBIT SIMULATION</p></div>
+                    <div class="user-info"><span class="date">🛰️ 27 JAN, 2026 • 14:32 UTC</span><div class="avatar">A1</div></div>
+                </header>
+
+                <div class="dashboard-grid">
+                    <div class="body-visualizer">
+                        <div class="view-toggle">
+                            <button class="active" onclick="toggleView(1,'front')">FRONT</button>
+                            <button onclick="toggleView(1,'back')">BACK</button>
+                        </div>
+                        <div class="body-stage" id="bodyStage1">
+                            <div class="body-image-wrapper">
+                                <svg class="human-svg front-svg" viewBox="0 0 300 500">
+                                    <ellipse cx="150" cy="40" rx="22" ry="28" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <rect x="142" y="65" width="16" height="18" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <path d="M110,83 Q150,75 190,83 L185,220 Q150,235 115,220 Z" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <path d="M110,88 L80,140 L72,220 L90,225 L98,150 L112,120 Z" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <path d="M190,88 L220,140 L228,220 L210,225 L202,150 L188,120 Z" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <path d="M120,225 L108,340 L110,460 L140,460 L138,340 L142,230 Z" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <path d="M180,225 L192,340 L190,460 L160,460 L162,340 L158,230 Z" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <line x1="150" y1="90" x2="150" y2="220" stroke="#8a2be2" stroke-width="1" opacity="0.5"/>
+                                    <line x1="120" y1="120" x2="180" y2="120" stroke="#8a2be2" stroke-width="1" opacity="0.5"/>
+                                    <line x1="120" y1="150" x2="180" y2="150" stroke="#8a2be2" stroke-width="1" opacity="0.5"/>
+                                    <line x1="120" y1="180" x2="180" y2="180" stroke="#8a2be2" stroke-width="1" opacity="0.5"/>
+                                </svg>
+                                <svg class="human-svg back-svg" viewBox="0 0 300 500" style="display:none;">
+                                    <ellipse cx="150" cy="40" rx="22" ry="28" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <rect x="142" y="65" width="16" height="18" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <path d="M110,83 Q150,75 190,83 L185,220 Q150,235 115,220 Z" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <path d="M110,88 L80,140 L72,220 L90,225 L98,150 L112,120 Z" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <path d="M190,88 L220,140 L228,220 L210,225 L202,150 L188,120 Z" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <path d="M120,225 L108,340 L110,460 L140,460 L138,340 L142,230 Z" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <path d="M180,225 L192,340 L190,460 L160,460 L162,340 L158,230 Z" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <line x1="150" y1="85" x2="150" y2="220" stroke="#8a2be2" stroke-width="1.5" opacity="0.6"/>
+                                </svg>
+                                <div class="dots front-dots">
+                                    <span class="muscle-dot blue" style="top:20%;left:35%;"></span>
+                                    <span class="muscle-dot blue" style="top:20%;left:65%;"></span>
+                                    <span class="muscle-dot blue" style="top:25%;left:37%;"></span>
+                                    <span class="muscle-dot blue" style="top:25%;left:63%;"></span>
+                                    <span class="muscle-dot green" style="top:33%;left:44%;"></span>
+                                    <span class="muscle-dot green" style="top:33%;left:56%;"></span>
+                                    <span class="muscle-dot blue" style="top:42%;left:47%;"></span>
+                                    <span class="muscle-dot blue" style="top:48%;left:53%;"></span>
+                                    <span class="muscle-dot red" style="top:62%;left:41%;"></span>
+                                    <span class="muscle-dot red" style="top:62%;left:59%;"></span>
+                                    <span class="muscle-dot green" style="top:80%;left:42%;"></span>
+                                    <span class="muscle-dot green" style="top:80%;left:58%;"></span>
+                                </div>
+                                <div class="dots back-dots" style="display:none;">
+                                    <span class="muscle-dot green" style="top:20%;left:45%;"></span>
+                                    <span class="muscle-dot green" style="top:20%;left:55%;"></span>
+                                    <span class="muscle-dot blue" style="top:30%;left:39%;"></span>
+                                    <span class="muscle-dot blue" style="top:30%;left:61%;"></span>
+                                    <span class="muscle-dot red" style="top:44%;left:48%;"></span>
+                                    <span class="muscle-dot red" style="top:44%;left:52%;"></span>
+                                    <span class="muscle-dot blue" style="top:52%;left:44%;"></span>
+                                    <span class="muscle-dot blue" style="top:52%;left:56%;"></span>
+                                    <span class="muscle-dot red" style="top:64%;left:41%;"></span>
+                                    <span class="muscle-dot red" style="top:64%;left:59%;"></span>
+                                    <span class="muscle-dot blue" style="top:80%;left:42%;"></span>
+                                    <span class="muscle-dot blue" style="top:80%;left:58%;"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="legend">
+                            <span><span class="dot blue"></span> ACTIVE</span>
+                            <span><span class="dot red"></span> FATIGUED</span>
+                            <span><span class="dot green"></span> BALANCED</span>
+                        </div>
+                    </div>
+
+                    <div class="data-panel">
+                        <div class="card heart-rate">
+                            <div class="card-header"><h3>HEART RATE</h3><span class="icon">❤️</span></div>
+                            <div class="value">145 <span>bpm</span></div>
+                            <div class="progress-bar"><div class="fill" style="width:75%;"></div></div>
+                            <p class="card-note">Microgravity adaptation</p>
+                        </div>
+                        <div class="card sleep-stage">
+                            <div class="card-header"><h3>SLEEP STAGE</h3><span class="icon">🌙</span></div>
+                            <div class="value blue-text">REM SLEEP</div>
+                            <div class="sleep-bars">
+                                <span class="bar active"></span><span class="bar active"></span><span class="bar active"></span><span class="bar"></span>
+                            </div>
+                            <p class="card-note">Duration: 1h 45m • Brain activity high</p>
+                        </div>
+                        <div class="card fatigue">
+                            <div class="card-header"><h3>MUSCLE ATROPHY RISK</h3><span class="icon">🦵</span></div>
+                            <div class="value red-text">HIGH</div>
+                            <p>Hamstring & Quadriceps strain detected. Countermeasure required.</p>
+                        </div>
+                        <div class="card recommendations">
+                            <div class="card-header"><h3>ASTRONAUT PROTOCOL</h3><span class="icon">🚀</span></div>
+                            <ul>
+                                <li><span>🪐</span> Use Resistance Bands (10 mins)</li>
+                                <li><span>💧</span> Hydrate 500ml (Zero-G)</li>
+                                <li><span>🛌</span> Strap into Sleep Station</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="rider2" class="rider-page">
+                <header class="page-header">
+                    <div><h2>DR. SARA</h2><p class="subtitle">MISSION: LUNAR BASE TRAINING</p></div>
+                    <div class="user-info"><span class="date">🛰️ 27 JAN, 2026 • 14:32 UTC</span><div class="avatar">S2</div></div>
+                </header>
+
+                <div class="dashboard-grid">
+                    <div class="body-visualizer">
+                        <div class="view-toggle">
+                            <button class="active" onclick="toggleView(2,'front')">FRONT</button>
+                            <button onclick="toggleView(2,'back')">BACK</button>
+                        </div>
+                        <div class="body-stage" id="bodyStage2">
+                            <div class="body-image-wrapper">
+                                <svg class="human-svg front-svg" viewBox="0 0 300 500">
+                                    <ellipse cx="150" cy="40" rx="22" ry="28" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <rect x="142" y="65" width="16" height="18" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <path d="M110,83 Q150,75 190,83 L185,220 Q150,235 115,220 Z" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <path d="M110,88 L80,140 L72,220 L90,225 L98,150 L112,120 Z" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <path d="M190,88 L220,140 L228,220 L210,225 L202,150 L188,120 Z" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <path d="M120,225 L108,340 L110,460 L140,460 L138,340 L142,230 Z" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <path d="M180,225 L192,340 L190,460 L160,460 L162,340 L158,230 Z" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <line x1="150" y1="90" x2="150" y2="220" stroke="#8a2be2" stroke-width="1" opacity="0.5"/>
+                                    <line x1="120" y1="120" x2="180" y2="120" stroke="#8a2be2" stroke-width="1" opacity="0.5"/>
+                                    <line x1="120" y1="150" x2="180" y2="150" stroke="#8a2be2" stroke-width="1" opacity="0.5"/>
+                                    <line x1="120" y1="180" x2="180" y2="180" stroke="#8a2be2" stroke-width="1" opacity="0.5"/>
+                                </svg>
+                                <svg class="human-svg back-svg" viewBox="0 0 300 500" style="display:none;">
+                                    <ellipse cx="150" cy="40" rx="22" ry="28" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <rect x="142" y="65" width="16" height="18" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <path d="M110,83 Q150,75 190,83 L185,220 Q150,235 115,220 Z" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <path d="M110,88 L80,140 L72,220 L90,225 L98,150 L112,120 Z" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <path d="M190,88 L220,140 L228,220 L210,225 L202,150 L188,120 Z" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <path d="M120,225 L108,340 L110,460 L140,460 L138,340 L142,230 Z" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <path d="M180,225 L192,340 L190,460 L160,460 L162,340 L158,230 Z" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <line x1="150" y1="85" x2="150" y2="220" stroke="#8a2be2" stroke-width="1.5" opacity="0.6"/>
+                                </svg>
+                                <div class="dots front-dots">
+                                    <span class="muscle-dot green" style="top:20%;left:35%;"></span>
+                                    <span class="muscle-dot green" style="top:20%;left:65%;"></span>
+                                    <span class="muscle-dot blue" style="top:25%;left:37%;"></span>
+                                    <span class="muscle-dot blue" style="top:25%;left:63%;"></span>
+                                    <span class="muscle-dot green" style="top:33%;left:44%;"></span>
+                                    <span class="muscle-dot green" style="top:33%;left:56%;"></span>
+                                    <span class="muscle-dot green" style="top:42%;left:47%;"></span>
+                                    <span class="muscle-dot green" style="top:48%;left:53%;"></span>
+                                    <span class="muscle-dot green" style="top:62%;left:41%;"></span>
+                                    <span class="muscle-dot green" style="top:62%;left:59%;"></span>
+                                    <span class="muscle-dot blue" style="top:80%;left:42%;"></span>
+                                    <span class="muscle-dot blue" style="top:80%;left:58%;"></span>
+                                </div>
+                                <div class="dots back-dots" style="display:none;">
+                                    <span class="muscle-dot green" style="top:20%;left:45%;"></span>
+                                    <span class="muscle-dot green" style="top:20%;left:55%;"></span>
+                                    <span class="muscle-dot blue" style="top:30%;left:39%;"></span>
+                                    <span class="muscle-dot blue" style="top:30%;left:61%;"></span>
+                                    <span class="muscle-dot green" style="top:44%;left:48%;"></span>
+                                    <span class="muscle-dot green" style="top:44%;left:52%;"></span>
+                                    <span class="muscle-dot blue" style="top:52%;left:44%;"></span>
+                                    <span class="muscle-dot blue" style="top:52%;left:56%;"></span>
+                                    <span class="muscle-dot green" style="top:64%;left:41%;"></span>
+                                    <span class="muscle-dot green" style="top:64%;left:59%;"></span>
+                                    <span class="muscle-dot blue" style="top:80%;left:42%;"></span>
+                                    <span class="muscle-dot blue" style="top:80%;left:58%;"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="legend">
+                            <span><span class="dot blue"></span> ACTIVE</span>
+                            <span><span class="dot red"></span> FATIGUED</span>
+                            <span><span class="dot green"></span> BALANCED</span>
+                        </div>
+                    </div>
+
+                    <div class="data-panel">
+                        <div class="card heart-rate">
+                            <div class="card-header"><h3>HEART RATE</h3><span class="icon">❤️</span></div>
+                            <div class="value">120 <span>bpm</span></div>
+                            <div class="progress-bar"><div class="fill" style="width:50%;background:#00ff88;"></div></div>
+                            <p class="card-note">Optimal range for EVA</p>
+                        </div>
+                        <div class="card sleep-stage">
+                            <div class="card-header"><h3>SLEEP STAGE</h3><span class="icon">🌙</span></div>
+                            <div class="value green-text">DEEP SLEEP</div>
+                            <div class="sleep-bars">
+                                <span class="bar active"></span><span class="bar active"></span><span class="bar active"></span><span class="bar active"></span>
+                            </div>
+                            <p class="card-note">Duration: 3h 20m • Recovery mode</p>
+                        </div>
+                        <div class="card fatigue">
+                            <div class="card-header"><h3>MUSCLE ATROPHY RISK</h3><span class="icon">🦵</span></div>
+                            <div class="value green-text">LOW</div>
+                            <p>All muscle groups within safe parameters. Ready for spacewalk.</p>
+                        </div>
+                        <div class="card recommendations">
+                            <div class="card-header"><h3>ASTRONAUT PROTOCOL</h3><span class="icon">🚀</span></div>
+                            <ul>
+                                <li><span>🌌</span> Proceed with Spacewalk</li>
+                                <li><span>🍌</span> Eat Nutrient Paste</li>
+                                <li><span>✅</span> All Systems Go</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="rider3" class="rider-page">
+                <header class="page-header">
+                    <div><h2>ENG. OMAR</h2><p class="subtitle">MISSION: DEEP SPACE SURVIVAL</p></div>
+                    <div class="user-info"><span class="date">🛰️ 27 JAN, 2026 • 14:32 UTC</span><div class="avatar">O3</div></div>
+                </header>
+
+                <div class="dashboard-grid">
+                    <div class="body-visualizer">
+                        <div class="view-toggle">
+                            <button class="active" onclick="toggleView(3,'front')">FRONT</button>
+                            <button onclick="toggleView(3,'back')">BACK</button>
+                        </div>
+                        <div class="body-stage" id="bodyStage3">
+                            <div class="body-image-wrapper">
+                                <svg class="human-svg front-svg" viewBox="0 0 300 500">
+                                    <ellipse cx="150" cy="40" rx="22" ry="28" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <rect x="142" y="65" width="16" height="18" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <path d="M110,83 Q150,75 190,83 L185,220 Q150,235 115,220 Z" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <path d="M110,88 L80,140 L72,220 L90,225 L98,150 L112,120 Z" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <path d="M190,88 L220,140 L228,220 L210,225 L202,150 L188,120 Z" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <path d="M120,225 L108,340 L110,460 L140,460 L138,340 L142,230 Z" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <path d="M180,225 L192,340 L190,460 L160,460 L162,340 L158,230 Z" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <line x1="150" y1="90" x2="150" y2="220" stroke="#8a2be2" stroke-width="1" opacity="0.5"/>
+                                    <line x1="120" y1="120" x2="180" y2="120" stroke="#8a2be2" stroke-width="1" opacity="0.5"/>
+                                    <line x1="120" y1="150" x2="180" y2="150" stroke="#8a2be2" stroke-width="1" opacity="0.5"/>
+                                    <line x1="120" y1="180" x2="180" y2="180" stroke="#8a2be2" stroke-width="1" opacity="0.5"/>
+                                </svg>
+                                <svg class="human-svg back-svg" viewBox="0 0 300 500" style="display:none;">
+                                    <ellipse cx="150" cy="40" rx="22" ry="28" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <rect x="142" y="65" width="16" height="18" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <path d="M110,83 Q150,75 190,83 L185,220 Q150,235 115,220 Z" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <path d="M110,88 L80,140 L72,220 L90,225 L98,150 L112,120 Z" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <path d="M190,88 L220,140 L228,220 L210,225 L202,150 L188,120 Z" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <path d="M120,225 L108,340 L110,460 L140,460 L138,340 L142,230 Z" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <path d="M180,225 L192,340 L190,460 L160,460 L162,340 L158,230 Z" fill="#3a2a5a" stroke="#8a2be2" stroke-width="1.5"/>
+                                    <line x1="150" y1="85" x2="150" y2="220" stroke="#8a2be2" stroke-width="1.5" opacity="0.6"/>
+                                </svg>
+                                <div class="dots front-dots">
+                                    <span class="muscle-dot red" style="top:20%;left:35%;"></span>
+                                    <span class="muscle-dot red" style="top:20%;left:65%;"></span>
+                                    <span class="muscle-dot red" style="top:25%;left:37%;"></span>
+                                    <span class="muscle-dot red" style="top:25%;left:63%;"></span>
+                                    <span class="muscle-dot blue" style="top:33%;left:44%;"></span>
+                                    <span class="muscle-dot blue" style="top:33%;left:56%;"></span>
+                                    <span class="muscle-dot red" style="top:42%;left:47%;"></span>
+                                    <span class="muscle-dot red" style="top:48%;left:53%;"></span>
+                                    <span class="muscle-dot red" style="top:62%;left:41%;"></span>
+                                    <span class="muscle-dot red" style="top:62%;left:59%;"></span>
+                                    <span class="muscle-dot red" style="top:80%;left:42%;"></span>
+                                    <span class="muscle-dot red" style="top:80%;left:58%;"></span>
+                                </div>
+                                <div class="dots back-dots" style="display:none;">
+                                    <span class="muscle-dot blue" style="top:20%;left:45%;"></span>
+                                    <span class="muscle-dot blue" style="top:20%;left:55%;"></span>
+                                    <span class="muscle-dot red" style="top:30%;left:39%;"></span>
+                                    <span class="muscle-dot red" style="top:30%;left:61%;"></span>
+                                    <span class="muscle-dot red" style="top:44%;left:48%;"></span>
+                                    <span class="muscle-dot red" style="top:44%;left:52%;"></span>
+                                    <span class="muscle-dot red" style="top:52%;left:44%;"></span>
+                                    <span class="muscle-dot red" style="top:52%;left:56%;"></span>
+                                    <span class="muscle-dot red" style="top:64%;left:41%;"></span>
+                                    <span class="muscle-dot red" style="top:64%;left:59%;"></span>
+                                    <span class="muscle-dot red" style="top:80%;left:42%;"></span>
+                                    <span class="muscle-dot red" style="top:80%;left:58%;"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="legend">
+                            <span><span class="dot blue"></span> ACTIVE</span>
+                            <span><span class="dot red"></span> FATIGUED</span>
+                            <span><span class="dot green"></span> BALANCED</span>
+                        </div>
+                    </div>
+
+                    <div class="data-panel">
+                        <div class="card heart-rate">
+                            <div class="card-header"><h3>HEART RATE</h3><span class="icon">❤️</span></div>
+                            <div class="value">170 <span>bpm</span></div>
+                            <div class="progress-bar"><div class="fill" style="width:90%;background:#ff4d4d;"></div></div>
+                            <p class="card-note">Critical threshold exceeded</p>
+                        </div>
+                        <div class="card sleep-stage">
+                            <div class="card-header"><h3>SLEEP STAGE</h3><span class="icon">🌙</span></div>
+                            <div class="value red-text">NO SLEEP</div>
+                            <div class="sleep-bars">
+                                <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                            </div>
+                            <p class="card-note">Insomnia detected • 0h sleep</p>
+                        </div>
+                        <div class="card fatigue">
+                            <div class="card-header"><h3>MUSCLE ATROPHY RISK</h3><span class="icon">🦵</span></div>
+                            <div class="value red-text">CRITICAL</div>
+                            <p>Severe overload detected. Emergency protocol active.</p>
+                        </div>
+                        <div class="card recommendations">
+                            <div class="card-header"><h3>ASTRONAUT PROTOCOL</h3><span class="icon">🚀</span></div>
+                            <ul>
+                                <li><span>🚨</span> EMERGENCY - Return to Airlock</li>
+                                <li><span>💧</span> IV Fluids Required</li>
+                                <li><span>🏥</span> Contact Flight Surgeon</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="emsPage" class="rider-page">
+                <header class="page-header">
+                    <div><h2>EMS CONTROL CENTER</h2><p class="subtitle">ELECTRO MUSCLE STIMULATION - CRITICAL ANALYSIS</p></div>
+                    <div class="user-info"><span class="date">🛰️ 27 JAN, 2026 • 14:32 UTC</span><div class="avatar">⚡</div></div>
+                </header>
+
+                <div class="ems-grid">
+
+                    <div class="ems-card">
+                        <div class="ems-header">
+                            <h3>CMDR. ALI</h3>
+                            <span class="badge medium">MEDIUM PRIORITY</span>
+                        </div>
+                        <div class="ems-body">
+                            <div class="ems-muscle">
+                                <span class="muscle-name">Hamstring (Left)</span>
+                                <span class="muscle-status">Fatigued 72%</span>
+                                <div class="amp-control">
+                                    <span>Required:</span>
+                                    <strong class="amp-value">35 Amps</strong>
+                                </div>
+                                <div class="amp-bar"><div class="fill" style="width:60%;background:#ffc107;"></div></div>
+                            </div>
+                            <div class="ems-muscle">
+                                <span class="muscle-name">Quadriceps (Right)</span>
+                                <span class="muscle-status">Fatigued 65%</span>
+                                <div class="amp-control">
+                                    <span>Required:</span>
+                                    <strong class="amp-value">28 Amps</strong>
+                                </div>
+                                <div class="amp-bar"><div class="fill" style="width:50%;background:#ffc107;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ems-card">
+                        <div class="ems-header">
+                            <h3>DR. SARA</h3>
+                            <span class="badge low">LOW PRIORITY</span>
+                        </div>
+                        <div class="ems-body">
+                            <div class="ems-muscle">
+                                <span class="muscle-name">All Muscles</span>
+                                <span class="muscle-status">Balanced • No Stimulation Needed</span>
+                                <div class="amp-control">
+                                    <span>Required:</span>
+                                    <strong class="amp-value green-text">0 Amps</strong>
+                                </div>
+                                <div class="amp-bar"><div class="fill" style="width:5%;background:#00ff88;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ems-card critical-card">
+                        <div class="ems-header">
+                            <h3>ENG. OMAR</h3>
+                            <span class="badge high">HIGH PRIORITY</span>
+                        </div>
+                        <div class="ems-body">
+                            <div class="ems-muscle">
+                                <span class="muscle-name">Quadriceps (Both)</span>
+                                <span class="muscle-status">Severe Atrophy Risk 92%</span>
+                                <div class="amp-control">
+                                    <span>Required:</span>
+                                    <strong class="amp-value red-text">85 Amps</strong>
+                                </div>
+                                <div class="amp-bar"><div class="fill" style="width:95%;background:#ff4d4d;"></div></div>
+                            </div>
+                            <div class="ems-muscle">
+                                <span class="muscle-name">Hamstring (Both)</span>
+                                <span class="muscle-status">Severe Fatigue 88%</span>
+                                <div class="amp-control">
+                                    <span>Required:</span>
+                                    <strong class="amp-value red-text">75 Amps</strong>
+                                </div>
+                                <div class="amp-bar"><div class="fill" style="width:85%;background:#ff4d4d;"></div></div>
+                            </div>
+                            <div class="ems-muscle">
+                                <span class="muscle-name">Lower Back</span>
+                                <span class="muscle-status">High Strain 80%</span>
+                                <div class="amp-control">
+                                    <span>Required:</span>
+                                    <strong class="amp-value red-text">60 Amps</strong>
+                                </div>
+                                <div class="amp-bar"><div class="fill" style="width:75%;background:#ff4d4d;"></div></div>
+                            </div>
+                        </div>
+                        <div class="ems-warning">
+                            ⚠️ WARNING: Immediate EMS application required. Do not exceed 90 Amps.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </section>
+
+<script>
+    function enterDashboard(id) {
+        document.getElementById('homeScreen').classList.remove('active');
+        document.getElementById('dashboardScreen').classList.add('active');
+        showPage('rider' + id, 'nav' + id);
+    }
+    function goHome() {
+        document.getElementById('dashboardScreen').classList.remove('active');
+        document.getElementById('homeScreen').classList.add('active');
+    }
+    function showPage(pageId, navId) {
+        document.querySelectorAll('.rider-page').forEach(p => p.classList.remove('active'));
+        document.getElementById(pageId).classList.add('active');
+        document.querySelectorAll('.nav-links li').forEach(li => li.classList.remove('active'));
+        if (document.getElementById(navId)) document.getElementById(navId).classList.add('active');
+    }
+    function toggleView(id, view) {
+        const stage = document.getElementById('bodyStage' + id);
+        const frontSvg = stage.querySelector('.front-svg');
+        const backSvg = stage.querySelector('.back-svg');
+        const frontDots = stage.querySelector('.front-dots');
+        const backDots = stage.querySelector('.back-dots');
+        const buttons = stage.parentElement.querySelectorAll('.view-toggle button');
+        buttons.forEach(b => b.classList.remove('active'));
+        if (view === 'front') {
+            buttons[0].classList.add('active');
+            frontSvg.style.display = 'block';
+            backSvg.style.display = 'none';
+            frontDots.style.display = 'block';
+            backDots.style.display = 'none';
+        } else {
+            buttons[1].classList.add('active');
+            frontSvg.style.display = 'none';
+            backSvg.style.display = 'block';
+            frontDots.style.display = 'none';
+            backDots.style.display = 'block';
+        }
+    }
+    document.addEventListener('DOMContentLoaded', () => {[1,2,3].forEach(id => toggleView(id,'front'));});
+</script>
+</body>
+</html>
